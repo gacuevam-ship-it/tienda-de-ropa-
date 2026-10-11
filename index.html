@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Tienda de Ropa</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #222; line-height: 1.6; }
+
+  /* HEADER */
+  header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 50px; background: #fff; border-bottom: 1px solid #eee;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; }
+  nav ul { display: flex; gap: 30px; list-style: none; }
+  nav a { text-decoration: none; color: #222; font-size: 0.95rem; transition: color .3s; }
+  nav a:hover { color: #b8860b; }
+
+  /* HERO */
+  .hero {
+    height: 70vh; background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
+      url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600') center/cover;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    color: #fff; text-align: center; padding: 0 20px;
+  }
+  .hero h1 { font-size: 3rem; margin-bottom: 15px; letter-spacing: 3px; }
+  .hero p { font-size: 1.1rem; margin-bottom: 25px; }
+  .hero-botones { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 35px; background: #b8860b;
+    color: #fff; text-decoration: none; border-radius: 3px;
+    letter-spacing: 1px; transition: background .3s;
+  }
+  .btn:hover { background: #8b6508; }
+
+  .btn-youtube {
+    background: #ff0000;
+  }
+  .btn-youtube:hover { background: #cc0000; }
+
+  /* PRODUCTOS */
+  .section-title { text-align: center; font-size: 2rem; margin: 60px 0 40px; letter-spacing: 2px; }
+  .productos {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px; padding: 0 50px 60px; max-width: 1300px; margin: 0 auto;
+  }
+  .producto {
+    background: #fff; border: 1px solid #eee; border-radius: 6px;
+    overflow: hidden; transition: transform .3s, box-shadow .3s; text-align: center;
+  }
+  .producto:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(0,0,0,.1); }
+  .producto img { width: 100%; height: 300px; object-fit: cover; }
+  .producto h3 { font-size: 1rem; margin: 15px 0 5px; font-weight: 500; }
+  .producto .precio { color: #b8860b; font-weight: 700; margin-bottom: 15px; }
+  .producto button {
+    margin-bottom: 20px; padding: 8px 20px; border: 1px solid #222;
+    background: transparent; cursor: pointer; transition: all .3s;
+  }
+  .producto button:hover { background: #222; color: #fff; }
+
+  /* BENEFICIOS */
+  .beneficios {
+    display: flex; justify-content: space-around; flex-wrap: wrap;
+    background: #f9f9f9; padding: 50px 20px; text-align: center;
+  }
+  .beneficio { flex: 1; min-width: 200px; padding: 15px; }
+  .beneficio h4 { margin-bottom: 8px; font-size: 1.05rem; }
+  .beneficio p { font-size: 0.9rem; color: #666; }
+
+  /* FOOTER */
+  footer { background: #1a1a1a; color: #ccc; text-align: center; padding: 30px 20px; font-size: 0.9rem; }
+  footer a { color: #b8860b; text-decoration: none; }
+
+  .redes {
+    margin-bottom: 15px;
+    display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;
+  }
+  .redes a {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 18px; border: 1px solid #444; border-radius: 30px;
+    color: #ccc; text-decoration: none; font-size: 0.9rem;
+    transition: all .3s;
+  }
+  .redes a:hover { background: #ff0000; border-color: #ff0000; color: #fff; }
+
+  @media (max-width: 768px) {
+    header { flex-direction: column; gap: 15px; padding: 15px; }
+    nav ul { gap: 15px; font-size: 0.85rem; }
+    .hero h1 { font-size: 2rem; }
+    .productos { padding: 0 20px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">MI TIENDA</div>
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#tienda">Tienda</a></li>
+      <li><a href="#nosotros">Acerca de</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <h1>NUEVA COLECCIÓN</h1>
+  <p>Estilo y calidad para cada ocasión</p>
+  <div class="hero-botones">
+    <a href="#tienda" class="btn">Ver Tienda</a>
+    <a href="https://www.youtube.com/channel/UCy9QM7mU8tkdPqlWN4EoSbg"
+       target="_blank" rel="noopener" class="btn btn-youtube">
+      ▶ Suscríbete en YouTube
+    </a>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<h2 class="section-title" id="tienda">Nuestros Productos</h2>
+<section class="productos">
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600" alt="Pantalón Corto Running">
+    <h3>Pantalón Corto Running</h3>
+    <p class="precio">$29.99</p>
+    <button>Añadir al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="Camiseta Técnica">
+    <h3>Camiseta Técnica DryFit</h3>
+    <p class="precio">$19.99</p>
+    <button>Añadir al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600" alt="Leggings Compresión">
+    <h3>Leggings Compresión Alta</h3>
+    <p class="precio">$34.99</p>
+    <button>Añadir al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600" alt="Blazer Texturizado">
+    <h3>Blazer Texturizado Entallado</h3>
+    <p class="precio">$89.99</p>
+    <button>Añadir al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600" alt="Camisa Seda">
+    <h3>Camisa Seda Estampada</h3>
+    <p class="precio">$54.99</p>
+    <button>Añadir al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600" alt="Vestido Satén">
+    <h3>Vestido Satén Midi</h3>
+    <p class="precio">$69.99</p>
+    <button>Añadir al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600" alt="Chaqueta Denim">
+    <h3>Chaqueta Denim Clásica</h3>
+    <p class="precio">$74.99</p>
+    <button>Añadir al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600" alt="Pantalón Chino">
+    <h3>Pantalón Chino Ajustado</h3>
+    <p class="precio">$44.99</p>
+    <button>Añadir al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="Camiseta Algodón">
+    <h3>Camiseta Algodón Orgánico</h3>
+    <p class="precio">$24.99</p>
+    <button>Añadir al carrito</button>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="beneficios">
+  <div class="beneficio">
+    <h4>🚚 Envíos gratis</h4>
+    <p>En compras superiores a $50</p>
+  </div>
+  <div class="beneficio">
+    <h4>🔒 Pagos seguros</h4>
+    <p>Transacciones 100% protegidas</p>
+  </div>
+  <div class="beneficio">
+    <h4>💬 Servicio al cliente</h4>
+    <p>Atención personalizada 24/7</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="redes">
+    <a href="https://www.youtube.com/channel/UCy9QM7mU8tkdPqlWN4EoSbg"
+       target="_blank" rel="noopener">
+      ▶ YouTube
+    </a>
+  </div>
+  <p>&copy; 2026 Mi Tienda de Ropa. Todos los derechos reservados. | <a href="#">Política de Privacidad</a></p>
+</footer>
+
+</body>
+</html>
